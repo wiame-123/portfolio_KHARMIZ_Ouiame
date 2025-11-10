@@ -5,13 +5,13 @@ import { HiDownload } from "react-icons/hi";
 function Navbar() {
   const handleDownloadCV = async () => {
     try {
-      const response = await fetch('/Ouiame_KHarmiz_7 (7)_page-0001.jpg');
+      const response = await fetch('/CV_Wiame_KHARMIZ (3).pdf');
       const blob = await response.blob();
       
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'KHARMIZ_Ouiame_CV.pdf';
+      link.download = 'CV_Wiame_KHARMIZ.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
