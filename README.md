@@ -156,11 +156,11 @@ export const personalData = {
   designation: "Data, Cloud Computing & Business Intelligence Engineering Student",
   description: "My name is KHARMIZ Ouiame....",
   email: "ouiame.kharmize@gmail.com",
-  phone: "+121636780674",
+  phone: "+212 636780674",
   address: "Rabat,Maroc",
   github: "https://github.com/wiame-123",
 
-  linkedIn: "https://www.linkedin.com/in/wiame-kharmiz-486789234/",
+  linkedIn: "https://www.linkedin.com/in/ouiame-kharmiz-486789234/",
 
 };
 ```

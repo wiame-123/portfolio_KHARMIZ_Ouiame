@@ -15,11 +15,7 @@ import coffeescript from '../app/assets/svg/skills/coffeescript.svg';
 import c from '../app/assets/svg/skills/c.svg';
 import cplusplus from '../app/assets/svg/skills/cplusplus.svg';
 import csharp from '../app/assets/svg/skills/csharp.svg';
-
-
-
 import css from '../app/assets/svg/skills/css.svg';
-
 import deno from '../app/assets/svg/skills/deno.svg';
 import django from '../app/assets/svg/skills/django.svg';
 import docker from '../app/assets/svg/skills/docker.svg';
@@ -59,12 +55,14 @@ import picsart from '../app/assets/svg/skills/picsart.svg';
 import postgresql from '../app/assets/svg/skills/postgresql.svg';
 import premierepro from '../app/assets/svg/skills/premierepro.svg';
 import prisma from '../app/assets/svg/skills/prisma.svg';
+import pyspark from '../app/assets/svg/skills/pyspark.svg';
 import python from '../app/assets/svg/skills/python.svg';
 import pytorch from '../app/assets/svg/skills/pytorch.svg';
 import react from '../app/assets/svg/skills/react.svg';
 import ruby from '../app/assets/svg/skills/ruby.svg';
 import selenium from '../app/assets/svg/skills/selenium.svg';
 import sketch from '../app/assets/svg/skills/sketch.svg';
+import sqlserver from '../app/assets/svg/skills/sqlserver.svg';
 import strapi from '../app/assets/svg/skills/strapi.svg';
 import svelte from '../app/assets/svg/skills/svelte.svg';
 import swift from '../app/assets/svg/skills/swift.svg';
@@ -269,17 +267,17 @@ export const skillsImage = (skill) => {
     case 'power bi':
       return powerbi;
     case 'ssrs':
-      return microsoftoffice; // SQL Server Reporting Services - using MS Office
+      return sqlserver; // SQL Server Reporting Services - using MS Office
     case 'ssis':
-      return microsoftoffice; // SQL Server Integration Services - using MS Office
+      return sqlserver; // SQL Server Integration Services - using MS Office
     case 'etl':
       return microsoftoffice; // ETL processes - using MS Office
     case 'ssas':
-      return microsoftoffice; // SQL Server Analysis Services - using MS Office
+      return sqlserver; // SQL Server Analysis Services - using MS Office
     case 'sql':
       return mysql; // Using MySQL icon for SQL
     case 'ssms':
-      return microsoftoffice; // SQL Server Management Studio - using MS Office
+      return sqlserver; // SQL Server Management Studio - using MS Office
     case 'azure devops':
       return azure; // Using Azure icon for Azure DevOps
     case 'github':
@@ -307,7 +305,7 @@ export const skillsImage = (skill) => {
     case 'azure data factory':
       return azure; // Using Azure icon for Azure Data Factory
     case 'pyspark':
-      return python; // PySpark is Python-based
+      return pyspark; // PySpark is Python-based
     default:
       break;
   }
