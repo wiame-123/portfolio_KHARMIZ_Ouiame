@@ -33,7 +33,7 @@ function ContactSection() {
         {/* Partie gauche - Texte d'introduction */}
         <div className="space-y-4">
           <p className="text-gray-300 text-base leading-relaxed">
-            If you have any questions or concerns, please don't hesitate to contact me. 
+            If you have any questions or concerns, please don&apos;t hesitate to contact me. 
             I am open to any work opportunities that align with my skills and interests.
           </p>
           <p className="text-gray-400 text-sm leading-relaxed">
