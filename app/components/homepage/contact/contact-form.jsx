@@ -1,135 +1,107 @@
-"use client";
-// @flow strict
-import { isValidEmail } from "@/utils/check-email";
-import axios from "axios";
-import { useState } from "react";
-import { TbMailForward } from "react-icons/tb";
-import { toast } from "react-toastify";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
-function ContactForm() {
-  const [error, setError] = useState({ email: false, required: false });
-  const [isLoading, setIsLoading] = useState(false);
-  const [userInput, setUserInput] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+// Données personnelles
+const personalData = {
+  email: "ouiame.kharmize@gmail.com",
+  phone: "+212 636780674",
+  address: "Rabat, Maroc",
+  github: "https://github.com/your-profile",
+  linkedIn: "https://www.linkedin.com/in/wiame-kharmiz-/"
+};
 
-  const checkRequired = () => {
-    if (userInput.email && userInput.message && userInput.name) {
-      setError({ ...error, required: false });
-    }
-  };
-
-  const handleSendMail = async (e) => {
-    e.preventDefault();
-
-    if (!userInput.email || !userInput.message || !userInput.name) {
-      setError({ ...error, required: true });
-      return;
-    } else if (error.email) {
-      return;
-    } else {
-      setError({ ...error, required: false });
-    };
-
-    try {
-      setIsLoading(true);
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
-        userInput
-      );
-
-      toast.success("Message sent successfully!");
-      setUserInput({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    } finally {
-      setIsLoading(false);
-    };
-  };
-
+function ContactSection() {
   return (
-    <div>
-      <div className="mb-5">
+    <div id="contact" className="my-12 lg:my-16 relative mt-24">
+      {/* Indicateur vertical CONTACT */}
+      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
+        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
+          CONTACT
+        </span>
+        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+      </div>
+
+      {/* Bouton Contact With Me */}
+      <div className="mb-8 flex justify-start">
         <button className="px-6 py-3 bg-gradient-to-r from-[#D4B5A5] to-[#B89685] rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
           CONTACT WITH ME
         </button>
       </div>
-      <div className="max-w-3xl text-gray-800 rounded-lg border border-[#E8D3C8] p-3 lg:p-5">
-        <p className="text-sm text-gray-600">{"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}</p>
-        <div className="mt-6 flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <label className="text-base">Your Name: </label>
-            <input
-              className="bg-[#B89685]/20 w-full border rounded-md border-[#E8D3C8] focus:border-[#D4B5A5] ring-0 outline-0 transition-all duration-300 px-3 py-2 backdrop-blur-sm"
-              type="text"
-              maxLength="100"
-              required={true}
-              onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
-              onBlur={checkRequired}
-              value={userInput.name}
-            />
+
+      {/* Grille principale */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        
+        {/* Partie gauche - Texte d'introduction */}
+        <div className="space-y-4">
+          <p className="text-gray-300 text-base leading-relaxed">
+            If you have any questions or concerns, please don't hesitate to contact me. 
+            I am open to any work opportunities that align with my skills and interests.
+          </p>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            You can reach me via email or through my social media profiles. I will respond as soon as possible!
+          </p>
+        </div>
+
+        {/* Partie droite - Informations de contact */}
+        <div className="space-y-6">
+          {/* Email, Phone, Location */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#E8D3C8] hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0">
+                <Mail className="text-gray-800" size={20} />
+              </div>
+              <span className="text-gray-300 text-sm md:text-base">{personalData.email}</span>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <div className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#E8D3C8] hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0">
+                <Phone className="text-gray-800" size={20} />
+              </div>
+              <span className="text-gray-300 text-sm md:text-base">{personalData.phone}</span>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <div className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#E8D3C8] hover:scale-110 transition-all duration-300 cursor-pointer flex-shrink-0">
+                <MapPin className="text-gray-800" size={20} />
+              </div>
+              <span className="text-gray-300 text-sm md:text-base">{personalData.address}</span>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="text-base">Your Email: </label>
-            <input
-              className="bg-[#B89685]/20 w-full border rounded-md border-[#E8D3C8] focus:border-[#D4B5A5] ring-0 outline-0 transition-all duration-300 px-3 py-2 backdrop-blur-sm"
-              type="email"
-              maxLength="100"
-              required={true}
-              value={userInput.email}
-              onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
-              onBlur={() => {
-                checkRequired();
-                setError({ ...error, email: !isValidEmail(userInput.email) });
-              }}
-            />
-            {error.email && <p className="text-sm text-red-400">Please provide a valid email!</p>}
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-base">Your Message: </label>
-            <textarea
-              className="bg-[#B89685]/20 w-full border rounded-md border-[#E8D3C8] focus:border-[#D4B5A5] ring-0 outline-0 transition-all duration-300 px-3 py-2 backdrop-blur-sm"
-              maxLength="500"
-              name="message"
-              required={true}
-              onChange={(e) => setUserInput({ ...userInput, message: e.target.value })}
-              onBlur={checkRequired}
-              rows="4"
-              value={userInput.message}
-            />
-          </div>
-          <div className="flex flex-col items-center gap-3">
-            {error.required && <p className="text-sm text-red-400">
-              All fiels are required!
-            </p>}
-            <button
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-[#D4B5A5] to-[#B89685] px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold shadow-lg hover:shadow-xl hover:scale-105"
-              role="button"
-              onClick={handleSendMail}
-              disabled={isLoading}
+          {/* Réseaux sociaux - Email Me, GitHub, LinkedIn en ligne */}
+          <div className="flex items-center gap-3 pt-4 flex-wrap">
+            <a 
+              href={`mailto:${personalData.email}`}
+              className="px-5 py-2 bg-[#8b98a5] rounded-full text-white font-medium hover:bg-[#E8D3C8] hover:text-gray-800 transition-all duration-300 text-sm"
             >
-              {
-                isLoading ?
-                <span>Sending Message...</span>:
-                <span className="flex items-center gap-1">
-                  Send Message
-                  <TbMailForward size={20} />
-                </span>
-              }
-            </button>
+              Email Me
+            </a>
+            
+            <a 
+              target="_blank" 
+              rel="noopener noreferrer"
+              href={personalData.github}
+              className="inline-block"
+            >
+              <div className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 cursor-pointer">
+                <Github className="text-gray-800" size={24} />
+              </div>
+            </a>
+            
+            <a 
+              target="_blank" 
+              rel="noopener noreferrer"
+              href={personalData.linkedIn}
+              className="inline-block"
+            >
+              <div className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 cursor-pointer">
+                <Linkedin className="text-gray-800" size={24} />
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default ContactForm;
+export default ContactSection;
