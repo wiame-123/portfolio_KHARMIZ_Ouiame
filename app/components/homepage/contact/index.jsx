@@ -33,7 +33,7 @@ function ContactSection() {
         {/* Partie gauche - Texte d'introduction en NOIR */}
         <div className="space-y-4">
           <p className="text-gray-900 text-base leading-relaxed font-medium">
-            If you have any questions or concerns, please don't hesitate to contact me. 
+            If you have any questions or concerns, please don&apos;t hesitate to contact me. 
             I am open to any work opportunities that align with my skills and interests.
           </p>
           <p className="text-gray-700 text-sm leading-relaxed">
@@ -70,7 +70,7 @@ function ContactSection() {
           <div className="h-full flex items-center justify-center">
             {/* Vous pouvez ajouter une image ou laisser cet espace pour l'équilibre visuel */}
             <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900">Let's Connect!</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Let&apos;s Connect!</h3>
               <p className="text-gray-700">Feel free to reach out through any platform</p>
               
               {/* Réseaux sociaux - Email Me, GitHub, LinkedIn en ligne */}
