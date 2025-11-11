@@ -5,8 +5,8 @@ const personalData = {
   email: "ouiame.kharmize@gmail.com",
   phone: "+212 636780674",
   address: "Rabat, Maroc",
-  github: "https://github.com/your-profile",
-  linkedIn: "https://www.linkedin.com/in/wiame-kharmiz-/"
+  github: "https://github.com/wiame-123",
+  linkedIn: "https://www.linkedin.com/in/ouiame-kharmiz-486789234/"
 };
 
 function ContactSection() {
